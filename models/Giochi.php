@@ -6,7 +6,7 @@
 
             // COSTRUTTORE
             function __construct($image, $title, $category, $features){
-                parent::__construct($image, $title, $category)
+                parent::__construct($image, $title, $category);
                 $this->features = $features;
             }
 

@@ -8,7 +8,6 @@
             function __construct($image, $title, $category, $material){
                 parent::__construct($image, $title, $category);
                 $this->material = $material;
-                $this->sizes = $sizes;
             }
 
             // FUNZIONI
