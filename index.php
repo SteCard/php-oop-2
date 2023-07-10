@@ -54,6 +54,26 @@
 
     // var_dump($gioco1);
     // var_dump($gioco2);
+
+    // ARRAY "CIBO"
+    $cibo = [
+        $cibo1,
+        $cibo2,
+        $cibo3,
+        $cibo4
+    ];
+
+    // ARRAY "ACCESSORI"
+    $accessori = [
+        $accessorio1,
+        $accessorio2
+    ];
+
+    // ARRAY "GIOCHI"
+    $giochi = [
+        $gioco1,
+        $gioco2
+    ];
     
 ?>
 
@@ -64,8 +84,173 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CDN CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Boolshop</title>
     </head>
     <body>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Boolshop</h1>
+                </div>
+            </div>
+            <!-- Product -->
+            <div class="row py-5">
+                <div class="col-12">
+                    <h3>I Nostri Prodotti</h3>
+                </div>
+                <!-- Product Food -->
+                <?php foreach($cibo as $item) : ?>
+                    <div class="col-12 col-md-6 col-lg-4 my-3">
+                        <!-- Card -->
+                        <div class="card w-100 h-100">
+                            <div class="card-header p-0" style="height: 500px">
+                                <img src="<?php echo $item->image ?>" class="card-img-top object-fit-cover h-100" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <?php echo $item->title ?>
+                                </h4>
+                                <div class="card-text">
+                                    <!-- Category -->
+                                    <div class="my-3">
+                                        <i class="fas <?php switch($item->category){
+                                            case 'Cane':
+                                                echo "fa-dog";
+                                                break;
+                                            case 'Gatto':
+                                                echo "fa-cat";
+                                                break;
+                                            case 'Pesce':
+                                                echo "fa-fish";
+                                                break;
+                                            case 'Uccello':
+                                                echo "fa-dove";
+                                                break;
+                                        }?>"></i>
+                                        <span>
+                                            <?php echo $item->category ?>
+                                        </span>
+                                    </div>
+                                    <!-- Price -->
+                                    <div class="my-3">
+                                        <?php echo "Prezzo: ".$item->getPrice() ?>
+                                    </div>
+                                    <!-- Net Weight -->
+                                    <div class="my-3">
+                                        <?php echo "Peso netto: ".$item->getNetWeight() ?>
+                                    </div>
+                                    <!-- Ingredients -->
+                                    <div class="my-3">
+                                        <?php echo "Ingredienti: ".$item->getIngredients() ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <!-- Product Accessories -->
+                <?php foreach($accessori as $item) : ?>
+                    <div class="col-12 col-md-6 col-lg-4 my-3">
+                        <!-- Card -->
+                        <div class="card w-100 h-100">
+                            <div class="card-header p-0" style="height: 500px">
+                                <img src="<?php echo $item->image ?>" class="card-img-top object-fit-cover h-100" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <?php echo $item->title ?>
+                                </h4>
+                                <div class="card-text">
+                                    <!-- Category -->
+                                    <div class="my-3">
+                                        <i class="fas <?php switch($item->category){
+                                            case 'Cane':
+                                                echo "fa-dog";
+                                                break;
+                                            case 'Gatto':
+                                                echo "fa-cat";
+                                                break;
+                                            case 'Pesce':
+                                                echo "fa-fish";
+                                                break;
+                                            case 'Uccello':
+                                                echo "fa-dove";
+                                                break;
+                                        }?>"></i>
+                                        <span>
+                                            <?php echo $item->category ?>
+                                        </span>
+                                    </div>
+                                    <!-- Price -->
+                                    <div class="my-3">
+                                        <?php echo "Prezzo: ".$item->getPrice() ?>
+                                    </div>
+                                    <!-- Materials -->
+                                    <div class="my-3">
+                                        <?php echo "Materiale: ".$item->material ?>
+                                    </div>
+                                    <!-- Dimensions -->
+                                    <div class="my-3">
+                                        <?php echo "Dimensioni: ".$item->getSizes() ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <!-- Product Games -->
+                <?php foreach($giochi as $item) : ?>
+                    <div class="col-12 col-md-6 col-lg-4 my-3">
+                        <!-- Card -->
+                        <div class="card w-100 h-100">
+                            <div class="card-header p-0" style="height: 500px">
+                                <img src="<?php echo $item->image ?>" class="card-img-top object-fit-cover h-100" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <?php echo $item->title ?>
+                                </h4>
+                                <div class="card-text">
+                                    <!-- Category -->
+                                    <div class="my-3">
+                                        <i class="fas <?php switch($item->category){
+                                            case 'Cane':
+                                                echo "fa-dog";
+                                                break;
+                                            case 'Gatto':
+                                                echo "fa-cat";
+                                                break;
+                                            case 'Pesce':
+                                                echo "fa-fish";
+                                                break;
+                                            case 'Uccello':
+                                                echo "fa-dove";
+                                                break;
+                                        }?>"></i>
+                                        <span>
+                                            <?php echo $item->category ?>
+                                        </span>
+                                    </div>
+                                    <!-- Price -->
+                                    <div class="my-3">
+                                        <?php echo "Prezzo: ".$item->getPrice() ?>
+                                    </div>
+                                    <!-- Features -->
+                                    <div class="my-3">
+                                        <?php echo "Caratteristiche: ".$item->features ?>
+                                    </div>
+                                    <!-- Dimensions -->
+                                    <div class="my-3">
+                                        <?php echo "Dimensioni: ".$item->getSizes() ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </body>
 </html>
